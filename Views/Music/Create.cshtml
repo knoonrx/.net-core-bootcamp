@@ -1,0 +1,58 @@
+﻿@model FirstApplication.Models.Band
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<hr />
+<section class="container">
+    <div class="row">
+        <div class="col s12">
+            <h2>Criar nova banda</h2>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            @using (Html.BeginForm("Create", "Music"))
+            {
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="input-field">
+                    @Html.TextBoxFor(x => x.Title, new { @class = "validate" })
+                    @Html.LabelFor(x => x.Title)
+                    @Html.ValidationMessageFor(x => x.Title)
+                </div>
+                <div class="input-field">
+                    @Html.TextBoxFor(x => x.Genre, new { @class = "validate" })
+                    @Html.LabelFor(x => x.Genre)
+                    @Html.ValidationMessageFor(x => x.Genre)
+                </div>
+                <div class="input-field">
+                    @Html.TextBoxFor(x => x.Origin, new { @class = "validate" })
+                    @Html.LabelFor(x => x.Origin)
+                    @Html.ValidationMessageFor(x => x.Origin)
+                </div>
+                <div class="input-field">
+                    @Html.TextBoxFor(x => x.Biography, new { @class = "validate" })
+                    @Html.LabelFor(x => x.Biography)
+                    @Html.ValidationMessageFor(x => x.Biography)
+                </div>
+                <div class="input-field">
+                    <button type="submit" class="waves-effect waves-light btn">Criar <i class="material-icons right">save</i></button>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
